@@ -1,5 +1,5 @@
-const { interval, merge } = rxjs;
-const { map } = rxjs.operators;
+import { interval, merge } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 const createTweetSource = (frequency, account, attribute) => {
     return interval(frequency).pipe(
