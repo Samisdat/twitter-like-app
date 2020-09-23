@@ -10,7 +10,8 @@ const createTweetSource = (frequency, account, attribute) => {
         )
     );
 }
-const tweets = merge(
+
+export const tweets = merge(
     createTweetSource(
         5000,
         'AwardsDarwin',
@@ -26,8 +27,4 @@ const tweets = merge(
         'CommitStrip',
         'Funny'
     )
-);
-
-tweets.subscribe(
-    console.log.bind(console)
 );
