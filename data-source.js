@@ -1,5 +1,3 @@
-// rxjs is expoxed by
-// https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.4.0/rxjs.umd.min.js
 const { interval, merge } = rxjs; const { map } = rxjs.operators;
 const createTweetSource = (frequency, account, attribute) => { return interval(frequency).pipe(map(i => ({
     account,
