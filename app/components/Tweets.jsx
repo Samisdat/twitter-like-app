@@ -5,8 +5,8 @@ export function Tweets(props) {
 
     return (
         <ul>
-            {props.tweets.map((value) => {
-                return <Tweet {...value}></Tweet>
+            {props.tweets.map((value, idx) => {
+                return <Tweet key={idx} {...value}></Tweet>
             })}
         </ul>
     );
