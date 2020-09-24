@@ -24,7 +24,15 @@ const poorMansTweetReducer = (tweet) => {
 };
 
 const poorMansTweetOrdering = (tweetA, tweetB) => {
-    return 1;
+
+    if(tweetA.timestamp > tweetB.timestamp){
+        return -1;
+    }
+    if(tweetA.timestamp < tweetB.timestamp){
+        return 1;
+    }
+
+    return 0;
 };
 
 tweets.subscribe( (tweet) => {
@@ -33,7 +41,7 @@ tweets.subscribe( (tweet) => {
     tweets.push(tweet);
 
     tweets.filter(poorMansTweetReducer);
-    tweets.filter(poorMansTweetOrdering);
+    tweets = tweets.sort(poorMansTweetOrdering);
 
     const nextState = {
         ...appStore.getValue(),
