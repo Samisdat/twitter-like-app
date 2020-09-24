@@ -1,3 +1,4 @@
+import {BehaviorSubject} from 'rxjs';
 import {tweets} from "./mock-api";
 
 /**
@@ -7,23 +8,40 @@ import {tweets} from "./mock-api";
  * then I reduce this to tweets newer then tweetMaxAgeSeconds
  * then I order date descending
  */
-export const tweetsDataStore = [];
 
-const poorMansReducer = () => {
+export const store = new BehaviorSubject();
 
+// screams for an interface
+const firstState = {
+    tweets: [],
+    toogle: 'all',
 };
 
-const poorMansOrdering = () => {
+store.next(firstState);
 
+const poorMansTweetReducer = (tweet) => {
+    return true;
+};
+
+const poorMansTweetOrdering = (tweetA, tweetB) => {
+    return 1;
 };
 
 tweets.subscribe( (tweet) => {
 
-    tweetsDataStore.push(tweet);
+    let tweets = store.getValue().tweets;
+    tweets.push(tweet);
 
-    }
-);
+    tweets.filter(poorMansTweetReducer);
+    tweets.filter(poorMansTweetOrdering);
 
-tweets.subscribe(()=>{
-    console.log(tweetsDataStore);
+    const nextState = {
+        ...store.getValue(),
+        tweets
+    };
+
+    store.next(nextState);
+
 });
+
+

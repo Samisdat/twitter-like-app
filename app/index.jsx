@@ -1,9 +1,10 @@
-/** taking care on data later data
-import {tweets} from "./data/mock-tweets";
 
-tweets.subscribe(
-    console.log.bind(console)
-);*/
+import {store} from "./data/store";
+
+store.subscribe( (data) => {
+    console.log(data)
+});
+
 
 import React from "react";
 import ReactDOM from "react-dom";
@@ -13,8 +14,7 @@ import {ToogleLikedTweets} from "./components/ToogleLikedTweets";
 import {LikedTweetsCounter} from "./components/LikedTweetsCounter";
 import {Tweets} from "./components/Tweets";
 
-function TwitterLikeApp() {
-
+function TwitterLikeApp(props) {
     return (
         <React.Fragment>
             <ClearTweets></ClearTweets>
