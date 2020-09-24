@@ -7,6 +7,7 @@ tweets.subscribe(
 
 import React from "react";
 import ReactDOM from "react-dom";
+import {htmlId} from "./constants";
 
 function TwitterLikeApp() {
 
@@ -17,6 +18,6 @@ function TwitterLikeApp() {
     );
 }
 
-let appHtmlElement = document.getElementById('twitter-like-app');
+let appHtmlElement = document.getElementById(htmlId);
 
 ReactDOM.render(<TwitterLikeApp />, appHtmlElement);
