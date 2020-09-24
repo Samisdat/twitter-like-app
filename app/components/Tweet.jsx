@@ -1,15 +1,27 @@
 import React from "react";
 import moment from "moment";
 
+import {Row, Col, Card} from 'react-bootstrap'
 export function Tweet(props) {
 
-    const ago = moment(props.timestamp).format('HH:mm:ss');
+    const formatedDate = moment(props.timestamp).format('HH:mm:ss');
 
     return (
-        <div>
-            <h1>{props.account}</h1>
-            <p>{props.content}</p>
-            <div>{ago}</div>
-        </div>
+            <Card className='mb-3'>
+                <Card.Body>
+                    <Card.Title>
+                        @{props.account}
+                    </Card.Title>
+                    <Card.Text>
+                        {props.content}
+                    </Card.Text>
+                </Card.Body>
+                <Card.Footer className="text-muted">
+                    <Row>
+                        <Col>{formatedDate}</Col>
+                        <Col className="text-right">♡♥</Col>
+                    </Row>
+                </Card.Footer>
+            </Card>
     );
 }
