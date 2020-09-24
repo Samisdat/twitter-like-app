@@ -9,7 +9,7 @@ import {tweets} from "./mock-api";
  * then I order date descending
  */
 
-export const store = new BehaviorSubject();
+export const appStore = new BehaviorSubject();
 
 // screams for an interface
 const firstState = {
@@ -17,7 +17,7 @@ const firstState = {
     toogle: 'all',
 };
 
-store.next(firstState);
+appStore.next(firstState);
 
 const poorMansTweetReducer = (tweet) => {
     return true;
@@ -29,18 +29,18 @@ const poorMansTweetOrdering = (tweetA, tweetB) => {
 
 tweets.subscribe( (tweet) => {
 
-    let tweets = store.getValue().tweets;
+    let tweets = appStore.getValue().tweets;
     tweets.push(tweet);
 
     tweets.filter(poorMansTweetReducer);
     tweets.filter(poorMansTweetOrdering);
 
     const nextState = {
-        ...store.getValue(),
+        ...appStore.getValue(),
         tweets
     };
 
-    store.next(nextState);
+    appStore.next(nextState);
 
 });
 

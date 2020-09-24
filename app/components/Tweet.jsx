@@ -1,10 +1,12 @@
 import React from "react";
 
-export function Tweet() {
+export function Tweet(props) {
 
     return (
         <div>
-            A tweet
+            <h1>{props.account}</h1>
+            <p>{props.content}</p>
+            <div>{props.timestamp}</div>
         </div>
     );
 }

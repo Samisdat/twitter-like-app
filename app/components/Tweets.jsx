@@ -1,11 +1,13 @@
 import React from "react";
 import {Tweet} from "./Tweet";
 
-export function Tweets() {
+export function Tweets(props) {
 
     return (
-        <div>
-            <Tweet></Tweet>
-        </div>
+        <ul>
+            {props.tweets.map((value) => {
+                return <Tweet {...value}></Tweet>
+            })}
+        </ul>
     );
 }
