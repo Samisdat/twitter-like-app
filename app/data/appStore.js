@@ -41,4 +41,26 @@ tweets.subscribe( (tweet) => {
 
 });
 
+export const toogleLikeTweet = (id_str) => {
+    console.log('toogleLikeTweet', id_str);
+
+    let tweets = appStore.getValue().tweets;
+
+    for(const tweet of tweets){
+
+        if(id_str === tweet.id_str){
+            tweet.liked = (true === tweet.liked)? false: true;
+        }
+
+    }
+
+    const nextState = {
+        ...appStore.getValue(),
+        tweets
+    };
+
+    appStore.next(nextState);
+
+}
+
 

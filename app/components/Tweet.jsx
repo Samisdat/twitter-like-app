@@ -19,7 +19,9 @@ export function Tweet(props) {
                 <Card.Footer className="text-muted">
                     <Row>
                         <Col>{formatedDate}</Col>
-                        <Col className="text-right">♡♥</Col>
+                        <Col className="text-right">
+                            <LikeTweet id_str={props.id_str} liked={props.liked}></LikeTweet>
+                        </Col>
                     </Row>
                 </Card.Footer>
             </Card>
