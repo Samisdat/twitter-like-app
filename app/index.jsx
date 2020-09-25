@@ -9,6 +9,10 @@ import {ToogleLikedTweets} from "./components/ToogleLikedTweets";
 import {LikedTweetsCounter} from "./components/LikedTweetsCounter";
 import {Tweets} from "./components/Tweets";
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import {Form, Navbar, Container, Row, Col} from 'react-bootstrap'
+
 function TwitterLikeApp(props) {
 
     const [store, setStore] = useState(appStore.getValue());
@@ -30,10 +34,32 @@ function TwitterLikeApp(props) {
 
     return (
         <React.Fragment>
-            <LikedTweetsCounter></LikedTweetsCounter>
-            <ToogleLikedTweets></ToogleLikedTweets>
-            <Tweets tweets={store.tweets}></Tweets>
+            <Navbar fixed='top' bg="primary" variant="dark">
+                <Navbar.Brand>Twitter like</Navbar.Brand>
+                <Container>
+                    <Row>
+                        <Col sm={8}>
+                            <LikedTweetsCounter></LikedTweetsCounter>
+                        </Col>
+                        <Col>
+                            <ToogleLikedTweets></ToogleLikedTweets>
+                        </Col>
+                        <Col>
                             <ClearTweets clearTweetsInStore={clearTweetsInStore}></ClearTweets>
+                        </Col>
+                    </Row>
+                </Container>
+
+            </Navbar>
+            <Container style={{
+                paddingTop: '70px'
+            }}>
+                <Row>
+                    <Col sm={8} className='pt-10'>
+                        <Tweets tweets={store.tweets}></Tweets>
+                    </Col>
+                </Row>
+            </Container>
         </React.Fragment>
     );
 }
