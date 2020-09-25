@@ -1,10 +1,10 @@
 import React from "react";
 
-export function ClearTweets() {
+import {Button} from 'react-bootstrap'
+
+export function ClearTweets(props) {
 
     return (
-        <div>
-            It must be possible to clear the list of tweets.
-        </div>
+        <Button variant="danger" onClick={props.clearTweetsInStore}>Clear tweets</Button>
     );
 }
