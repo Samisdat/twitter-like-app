@@ -14,7 +14,7 @@ import {tweetsReducer} from "./tweetsReducer";
 
 export const appStore = new BehaviorSubject();
 
-// screams for an interface
+// screams for an ts interface
 const firstState = {
     tweets: [],
     toogle: 'all',
