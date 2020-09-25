@@ -1,3 +1,12 @@
+/**
+ * assume that as an external dependency
+ * AwardsDarwin and CommitStrip tweet every 5000ms
+ * and iamdevloper has no life: he tweets every 3000ms
+ *
+ * All tweets are merged into a single stream
+ * I can subscript to the stream and get single every tweet in realtime
+ */
+
 import { interval, merge } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -11,14 +20,6 @@ const createTweetSource = (frequency, account, attribute) => {
     );
 }
 
-/**
- * assume that as an external dependency
- * AwardsDarwin and CommitStrip tweet every 5000ms
- * and iamdevloper has no life: he tweets every 3000ms
- *
- * All tweets are merged into a single stream
- * I can subscript to the stream and get single every tweet in realtime
- */
 export const tweets = merge(
     createTweetSource(
         5000,
