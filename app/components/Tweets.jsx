@@ -1,13 +1,13 @@
 import React from "react";
 import {Tweet} from "./Tweet";
 
-export function Tweets(props) {
+export const Tweets = (props) => {
 
     return (
-        <ul>
-            {props.tweets.map((value, idx) => {
-                return <Tweet key={idx} {...value}></Tweet>
+        <React.Fragment>
+            {props.tweets.map((tweet) => {
+                return <Tweet key={tweet.id_str} {...tweet}></Tweet>
             })}
-        </ul>
+        </React.Fragment>
     );
 }
