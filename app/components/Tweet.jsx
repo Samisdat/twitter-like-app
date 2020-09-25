@@ -22,7 +22,7 @@ export const Tweet = (props) => {
                         {props.text}
                     </Card.Text>
                 </Card.Body>
-                <Card.Footer className="text-muted">
+                <Card.Footer>
                     <Row>
                         <Col>{formatedDate}</Col>
                         <Col className="text-right">
