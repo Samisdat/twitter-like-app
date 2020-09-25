@@ -45,7 +45,7 @@ function TwitterLikeApp(props) {
                             <ToogleLikedTweets></ToogleLikedTweets>
                         </Col>
                         <Col>
-                            <ClearTweets clearTweetsInStore={clearTweetsInStore}></ClearTweets>
+                            <ClearTweets numberOfTweets={store.tweets.length} clearTweetsInStore={clearTweetsInStore}></ClearTweets>
                         </Col>
                     </Row>
                 </Container>
