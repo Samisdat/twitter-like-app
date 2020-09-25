@@ -4,16 +4,16 @@ import moment from "moment";
 import {Row, Col, Card} from 'react-bootstrap'
 export function Tweet(props) {
 
-    const formatedDate = moment(props.timestamp).format('HH:mm:ss');
+    const formatedDate = moment(props.created_at).format('HH:mm:ss');
 
     return (
             <Card className='mb-3'>
                 <Card.Body>
                     <Card.Title>
-                        @{props.account}
+                        @{props.user}
                     </Card.Title>
                     <Card.Text>
-                        {props.content}
+                        {props.text}
                     </Card.Text>
                 </Card.Body>
                 <Card.Footer className="text-muted">
