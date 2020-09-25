@@ -2,12 +2,18 @@ import React from "react";
 import moment from "moment";
 
 import {Row, Col, Card} from 'react-bootstrap'
-export function Tweet(props) {
+
+import {LikeTweet} from "./LikeTweet";
+
+export const Tweet = (props) => {
 
     const formatedDate = moment(props.created_at).format('HH:mm:ss');
 
+    const bg = (false === props.liked) ? 'light': 'success';
+    const text = (false === props.liked) ? 'dark': 'light';
+
     return (
-            <Card className='mb-3'>
+            <Card className='mb-3' bg={bg} text={text}>
                 <Card.Body>
                     <Card.Title>
                         @{props.user}
