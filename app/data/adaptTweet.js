@@ -1,5 +1,3 @@
-import {getId} from "./id";
-
 /**
  * i decided to thread the createTweetSource as external dependency.
  *
@@ -13,7 +11,10 @@ import {getId} from "./id";
  *
  * with more time i would loved to to this in typescript, interface and as unit tested value object
  *
+ * naming borrowed from https://developer.twitter.com/en/docs/twitter-api/v1/data-dictionary/overview/intro-to-tweet-json
  */
+
+import {getId} from "./id";
 
 export const adaptTweet = (dataFromApi) => {
 
