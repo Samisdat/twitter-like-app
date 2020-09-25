@@ -1,7 +1,8 @@
 import {BehaviorSubject} from 'rxjs';
 import {tweets} from "./mock-api";
-import {tweetMaxAgeSeconds} from "../constants";
 import {adaptTweet} from "./adaptTweet";
+import {tweetsOrdering} from "./tweetsOrdering";
+import {tweetsReducer} from "./tweetsReducer";
 
 /**
  * my components should not know about the "api" at all
@@ -21,37 +22,15 @@ const firstState = {
 
 appStore.next(firstState);
 
-const poorMansTweetReducer = (tweet) => {
-
-    const msSinceTweet = Date.now() - tweet.created_at;
-
-    const isOutDated = (msSinceTweet < tweetMaxAgeSeconds * 1000) ? true : false;
-
-    return isOutDated;
-
-};
-
-const poorMansTweetOrdering = (tweetA, tweetB) => {
-
-    if(tweetA.created_at > tweetB.created_at){
-        return -1;
-    }
-    if(tweetA.created_at < tweetB.created_at){
-        return 1;
-    }
-
-    return 0;
-};
-
 tweets.subscribe( (tweet) => {
 
     let tweets = appStore.getValue().tweets;
     tweets.push(
         adaptTweet(tweet)
     );
-    console.log(tweets)
-    tweets = tweets.filter(poorMansTweetReducer);
-    tweets = tweets.sort(poorMansTweetOrdering);
+
+    tweets = tweets.filter(tweetsReducer);
+    tweets = tweets.sort(tweetsOrdering);
 
     const nextState = {
         ...appStore.getValue(),
