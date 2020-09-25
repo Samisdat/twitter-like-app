@@ -17,12 +17,23 @@ function TwitterLikeApp(props) {
         appStore.subscribe(setStore);
     },[]);
 
+    const clearTweetsInStore = () => {
+
+        const nextState = {
+            ...appStore.getValue(),
+            tweets: []
+        };
+
+        appStore.next(nextState);
+
+    };
+
     return (
         <React.Fragment>
-            <ClearTweets></ClearTweets>
             <LikedTweetsCounter></LikedTweetsCounter>
             <ToogleLikedTweets></ToogleLikedTweets>
             <Tweets tweets={store.tweets}></Tweets>
+                            <ClearTweets clearTweetsInStore={clearTweetsInStore}></ClearTweets>
         </React.Fragment>
     );
 }
