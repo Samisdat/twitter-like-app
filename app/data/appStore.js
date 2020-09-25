@@ -1,7 +1,7 @@
 import {BehaviorSubject} from 'rxjs';
 import {tweets} from "./mock-api";
 import {tweetMaxAgeSeconds} from "../constants";
-import {getId} from "./id";
+import {adaptTweet} from "./adaptTweet";
 
 /**
  * my components should not know about the "api" at all
@@ -43,37 +43,11 @@ const poorMansTweetOrdering = (tweetA, tweetB) => {
     return 0;
 };
 
-const normalizeTweet = (dataFromApi) => {
-
-    const normalizedTweet = {
-        created_at: undefined,
-        id_str: getId(),
-        text:  undefined,
-        user: undefined,
-        liked: false
-    };
-
-    if(undefined !== dataFromApi.timestamp){
-        normalizedTweet.created_at = dataFromApi.timestamp;
-    }
-
-    if(undefined !== dataFromApi.content){
-        normalizedTweet.text = dataFromApi.content;
-    }
-
-    if(undefined !== dataFromApi.account){
-        normalizedTweet.user = dataFromApi.account;
-    }
-
-    return normalizedTweet;
-
-};
-
 tweets.subscribe( (tweet) => {
 
     let tweets = appStore.getValue().tweets;
     tweets.push(
-        normalizeTweet(tweet)
+        adaptTweet(tweet)
     );
     console.log(tweets)
     tweets = tweets.filter(poorMansTweetReducer);
