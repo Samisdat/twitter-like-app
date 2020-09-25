@@ -5,14 +5,14 @@ export const LikeTweet = (props) => {
 
     const heart = (true === props.liked) ? '♥': '♡';
 
-    const toogleLiked = () => {
+    const toggleLiked = () => {
 
         toogleLikeTweet(props.id_str);
 
     };
 
     return (
-        <span onClick={toogleLiked} style={{cursor: 'pointer'}}>
+        <span onClick={toggleLiked} style={{cursor: 'pointer'}}>
             {heart}
         </span>
     );
