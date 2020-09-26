@@ -1,5 +1,5 @@
 
-import {appStore} from "./data/appStore";
+import {appStore, countTweets} from "./data/appStore";
 
 import React, { useState, useLayoutEffect } from "react";
 import ReactDOM from "react-dom";
@@ -11,7 +11,7 @@ import {Tweets} from "./components/Tweets";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import {Form, Navbar, Container, Row, Col} from 'react-bootstrap'
+import {Navbar, Container, Row, Col} from 'react-bootstrap'
 
 const TwitterLikeApp = (props) => {
 
