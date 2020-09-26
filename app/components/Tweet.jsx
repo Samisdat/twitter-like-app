@@ -4,6 +4,7 @@ import moment from "moment";
 import {Row, Col, Card} from 'react-bootstrap'
 
 import {LikeTweet} from "./LikeTweet";
+import {toogleLikeTweet} from "../data/appStore";
 
 export const Tweet = (props) => {
 
@@ -11,6 +12,13 @@ export const Tweet = (props) => {
 
     const bg = (false === props.liked) ? 'light': 'success';
     const text = (false === props.liked) ? 'dark': 'light';
+
+    const toggleLiked = () => {
+
+        toogleLikeTweet(props.id_str);
+
+    };
+
 
     return (
             <Card className='mb-3' bg={bg} text={text}>
@@ -22,7 +30,7 @@ export const Tweet = (props) => {
                         {props.text}
                     </Card.Text>
                 </Card.Body>
-                <Card.Footer>
+                <Card.Footer onClick={toggleLiked} style={{cursor: 'pointer'}}>
                     <Row>
                         <Col>{formatedDate}</Col>
                         <Col className="text-right">
