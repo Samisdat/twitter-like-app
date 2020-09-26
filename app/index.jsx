@@ -32,6 +32,20 @@ const TwitterLikeApp = (props) => {
 
     };
 
+    const getTweets = () => {
+
+        const toggle = store.toggle;
+
+        if('all' === toggle){
+            return store.tweets;
+        }
+        else{
+            return store.tweets.filter((tweet)=>{
+                return (true === tweet.liked);
+            });
+        }
+
+    };
     return (
         <React.Fragment>
             <Navbar fixed='top' bg="primary" variant="dark">
