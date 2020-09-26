@@ -3,7 +3,6 @@ import moment from "moment";
 
 import {Row, Col, Card} from 'react-bootstrap'
 
-import {LikeTweet} from "./LikeTweet";
 import {toogleLikeTweet} from "../data/appStore";
 
 export const Tweet = (props) => {
@@ -12,6 +11,8 @@ export const Tweet = (props) => {
 
     const bg = (false === props.liked) ? 'light': 'success';
     const text = (false === props.liked) ? 'dark': 'light';
+
+    const heart = (true === props.liked) ? '♥': '♡';
 
     const toggleLiked = () => {
 
@@ -34,7 +35,7 @@ export const Tweet = (props) => {
                     <Row>
                         <Col>{formatedDate}</Col>
                         <Col className="text-right">
-                            <LikeTweet id_str={props.id_str} liked={props.liked}></LikeTweet>
+                            {heart}
                         </Col>
                     </Row>
                 </Card.Footer>
