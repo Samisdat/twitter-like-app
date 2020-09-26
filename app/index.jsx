@@ -46,6 +46,24 @@ const TwitterLikeApp = (props) => {
         }
 
     };
+
+    const toggleDisplayedTweets = () => {
+        console.log('toogleDisplayedTweets');
+
+        const toggle = ('all' === store.toggle) ? 'liked' : 'all';
+
+        console.log(toggle)
+
+        const nextState = {
+            ...appStore.getValue(),
+            toggle: toggle
+        };
+
+        appStore.next(nextState);
+
+
+    };
+
     return (
         <React.Fragment>
             <Navbar fixed='top' bg="primary" variant="dark">
