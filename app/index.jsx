@@ -13,7 +13,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import {Form, Navbar, Container, Row, Col} from 'react-bootstrap'
 
-function TwitterLikeApp(props) {
+const TwitterLikeApp = (props) => {
 
     const [store, setStore] = useState(appStore.getValue());
 
