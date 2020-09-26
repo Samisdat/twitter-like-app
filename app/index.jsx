@@ -88,7 +88,7 @@ const TwitterLikeApp = (props) => {
             }}>
                 <Row>
                     <Col sm={8} className='pt-10'>
-                        <Tweets tweets={store.tweets}></Tweets>
+                        <Tweets tweets={getTweets()}></Tweets>
                     </Col>
                 </Row>
             </Container>
