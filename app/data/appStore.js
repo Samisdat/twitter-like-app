@@ -61,6 +61,28 @@ export const toogleLikeTweet = (id_str) => {
 
     appStore.next(nextState);
 
+};
+
+export const countTweets = () => {
+
+    const countLiked = (sum, current) => {
+
+        if(undefined !== current && true === current.liked){
+            sum += 1;
+        }
+
+        return sum;
+    };
+
+    const liked = appStore.getValue().tweets.reduce(countLiked, 0);
+
+    const all = appStore.getValue().tweets.length - liked;
+
+    return{
+        all: all,
+        liked: liked
+    };
+
 }
 
 
