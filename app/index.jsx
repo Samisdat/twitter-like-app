@@ -24,7 +24,7 @@ const TwitterLikeApp = (props) => {
     const clearTweetsInStore = () => {
 
         const nextState = {
-            ...appStore.getValue(),
+            toggle: 'all',
             tweets: []
         };
 
