@@ -70,9 +70,6 @@ const TwitterLikeApp = (props) => {
                 <Navbar.Brand>Twitter like</Navbar.Brand>
                 <Container>
                     <Row>
-                        <Col sm={8}>
-                            <LikedTweetsCounter></LikedTweetsCounter>
-                        </Col>
                         <Col>
                             <ToogleLikedTweets active={store.toggle} toggle={toggleDisplayedTweets} numberOfAllTweets={countTweets().all} numberOfLikedTweets={countTweets().liked}></ToogleLikedTweets>
                         </Col>
