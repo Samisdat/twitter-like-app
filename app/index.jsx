@@ -1,12 +1,11 @@
 
 import {appStore, countTweets} from "./data/appStore";
 
-import React, { useState, useLayoutEffect } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import {htmlId} from "./constants";
 import {ClearTweets} from "./components/ClearTweets";
 import {ToogleLikedTweets} from "./components/ToogleLikedTweets";
-import {LikedTweetsCounter} from "./components/LikedTweetsCounter";
 import {Tweets} from "./components/Tweets";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -17,10 +16,12 @@ const TwitterLikeApp = (props) => {
 
     const [store, setStore] = useState(appStore.getValue());
 
-    useLayoutEffect(()=> {
+    useEffect(()=> {
+        // update state on every new emitted change from appstore
         appStore.subscribe(setStore);
     },[]);
 
+    // @todo move to appStore
     const clearTweetsInStore = () => {
 
         const nextState = {
@@ -32,6 +33,7 @@ const TwitterLikeApp = (props) => {
 
     };
 
+    // @todo move to appStore
     const getTweets = () => {
 
         const toggle = store.toggle;
@@ -48,11 +50,8 @@ const TwitterLikeApp = (props) => {
     };
 
     const toggleDisplayedTweets = () => {
-        console.log('toogleDisplayedTweets');
 
         const toggle = ('all' === store.toggle) ? 'liked' : 'all';
-
-        console.log(toggle)
 
         const nextState = {
             ...appStore.getValue(),
@@ -60,7 +59,6 @@ const TwitterLikeApp = (props) => {
         };
 
         appStore.next(nextState);
-
 
     };
 
@@ -71,21 +69,28 @@ const TwitterLikeApp = (props) => {
                 <Container>
                     <Row>
                         <Col>
-                            <ToogleLikedTweets active={store.toggle} toggle={toggleDisplayedTweets} numberOfAllTweets={countTweets().all} numberOfLikedTweets={countTweets().liked}></ToogleLikedTweets>
+                            <ToogleLikedTweets
+                                active={store.toggle}
+                                toggle={toggleDisplayedTweets}
+                                numberOfAllTweets={countTweets().all}
+                                numberOfLikedTweets={countTweets().liked}
+                            />
                         </Col>
                         <Col>
-                            <ClearTweets numberOfTweets={store.tweets.length} clearTweetsInStore={clearTweetsInStore}></ClearTweets>
+                            <ClearTweets
+                                numberOfTweets={store.tweets.length}
+                                clearTweetsInStore={clearTweetsInStore}
+                            />
                         </Col>
                     </Row>
                 </Container>
-
             </Navbar>
             <Container style={{
                 paddingTop: '70px'
             }}>
                 <Row>
                     <Col sm={8} className='pt-10'>
-                        <Tweets tweets={getTweets()}></Tweets>
+                        <Tweets tweets={getTweets()}/>
                     </Col>
                 </Row>
             </Container>
