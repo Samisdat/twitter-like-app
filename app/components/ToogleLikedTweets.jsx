@@ -2,13 +2,23 @@ import React from "react";
 
 import {ButtonGroup, ToggleButton} from 'react-bootstrap'
 
-export const ToogleLikedTweets = () => {
+export const ToogleLikedTweets = (props) => {
 
-    const radioValue = 'all';
+    const radioValue = props.active;
 
     const radios = [
-        { name: 'All', value: 'all' },
-        { name: 'Liked', value: 'liked' }
+        {
+            name: 'All',
+            value: 'all',
+            count: props.numberOfAllTweets,
+            disabled: (0 === props.numberOfAllTweets) ? 'disabled': ''
+        },
+        {
+            name: 'Liked',
+            value: 'liked',
+            count:props.numberOfLikedTweets,
+            disabled: (0 === props.numberOfLikedTweets) ? 'disabled': ''
+        }
     ];
 
     return (
@@ -18,12 +28,13 @@ export const ToogleLikedTweets = () => {
                     key={idx}
                     type="radio"
                     variant="secondary"
+                    disabled={radio.disabled}
                     name="radio"
                     value={radio.value}
                     checked={radioValue === radio.value}
-                    onChange={(e) => setRadioValue(e.currentTarget.value)}
+                    onChange= {props.toggle}
                 >
-                    {radio.name}
+                    {radio.name} {radio.count}
                 </ToggleButton>
             ))}
         </ButtonGroup>

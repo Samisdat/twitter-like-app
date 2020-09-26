@@ -42,7 +42,7 @@ const TwitterLikeApp = (props) => {
                             <LikedTweetsCounter></LikedTweetsCounter>
                         </Col>
                         <Col>
-                            <ToogleLikedTweets></ToogleLikedTweets>
+                            <ToogleLikedTweets active={store.toggle} toggle={toggleDisplayedTweets} numberOfAllTweets={countTweets().all} numberOfLikedTweets={countTweets().liked}></ToogleLikedTweets>
                         </Col>
                         <Col>
                             <ClearTweets numberOfTweets={store.tweets.length} clearTweetsInStore={clearTweetsInStore}></ClearTweets>
