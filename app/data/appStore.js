@@ -17,7 +17,7 @@ export const appStore = new BehaviorSubject();
 // screams for an ts interface
 const firstState = {
     tweets: [],
-    toogle: 'all',
+    toggle: 'all',
 };
 
 appStore.next(firstState);
