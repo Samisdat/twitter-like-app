@@ -63,38 +63,31 @@ const TwitterLikeApp = (props) => {
     };
 
     return (
-        <React.Fragment>
-            <Navbar fixed='top' bg="primary" variant="dark">
-                <Navbar.Brand>Twitter like</Navbar.Brand>
-                <Container>
-                    <Row>
-                        <Col>
-                            <ToogleLikedTweets
-                                active={store.toggle}
-                                toggle={toggleDisplayedTweets}
-                                numberOfAllTweets={countTweets().all}
-                                numberOfLikedTweets={countTweets().liked}
-                            />
-                        </Col>
-                        <Col>
-                            <ClearTweets
-                                numberOfTweets={store.tweets.length}
-                                clearTweetsInStore={clearTweetsInStore}
-                            />
-                        </Col>
-                    </Row>
-                </Container>
-            </Navbar>
-            <Container style={{
-                paddingTop: '70px'
-            }}>
-                <Row>
-                    <Col sm={8} className='pt-10'>
-                        <Tweets tweets={getTweets()}/>
-                    </Col>
-                </Row>
-            </Container>
-        </React.Fragment>
+        <Container>
+            <Row>
+                <Col xs={4}><div  style={{position:'fixed'}}>
+
+                    <h1>Twitter like app</h1>
+
+                    <ToogleLikedTweets
+                        active={store.toggle}
+                        toggle={toggleDisplayedTweets}
+                        numberOfAllTweets={countTweets().all}
+                        numberOfLikedTweets={countTweets().liked}
+                    />
+
+                    <ClearTweets
+                        numberOfTweets={store.tweets.length}
+                        clearTweetsInStore={clearTweetsInStore}
+                    />
+
+                </div></Col>
+
+                <Col xs={8}>
+                    <Tweets tweets={getTweets()}/>
+                </Col>
+            </Row>
+        </Container>
     );
 }
 
