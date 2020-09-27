@@ -53,8 +53,17 @@ export const toggleLikeTweet = (id_str) => {
 
     }
 
+    // if toggle is 'liked' and we unlike a tweet, we might end up with an empty screen
+    // so if we unlike the very last tweet -> implicit switch to 'all'
+    let toggle = appStore.getValue().toggle;
+
+    if('liked' === toggle && 0 === countTweets().liked){
+        toggle = 'all';
+    }
+
     const nextState = {
         ...appStore.getValue(),
+        toggle: toggle,
         tweets
     };
 
