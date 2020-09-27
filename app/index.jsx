@@ -6,7 +6,6 @@ import ReactDOM from 'react-dom';
 import {htmlId} from './constants';
 import {ClearTweets} from './components/ClearTweets';
 import {ToogleLikedTweets} from './components/ToogleLikedTweets';
-import {Tweets} from './components/Tweets';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -59,7 +58,11 @@ const TwitterLikeApp = (props) => {
                 </div></Col>
 
                 <Col xs={8}>
-                    <Tweets tweets={getTweets()}/>
+
+                    {tweets.map((tweet) => {
+                        return <Tweet key={tweet.id_str} {...tweet}></Tweet>
+                    })}
+
                 </Col>
             </Row>
         </Container>
