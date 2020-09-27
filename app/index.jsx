@@ -49,7 +49,7 @@ const TwitterLikeApp = () => {
                     />
 
                     <ClearTweets
-                        numberOfTweets={store.tweets.length}
+                        numberOfTweets={countTweets().all + countTweets().liked}
                         resetStore={resetStore}
                     />
 
