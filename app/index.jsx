@@ -43,7 +43,7 @@ const TwitterLikeApp = () => {
 
                     <h1 className='mb-3'>Twitter like app</h1>
 
-                    <ToogleLikedTweets
+                    <ToggleLikedTweets
                         active={store.toggle}
                         toggle={toggleDisplayedTweets}
                         numberOfAllTweets={countTweets().all}
@@ -69,6 +69,7 @@ const TwitterLikeApp = () => {
                     })}
 
                 </Col>
+
             </Row>
         </Container>
     );
