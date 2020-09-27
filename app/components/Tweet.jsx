@@ -3,6 +3,7 @@ import moment from 'moment';
 
 import {Row, Col, Card} from 'react-bootstrap'
 
+// @TODO all other functions are "injected" by from. This one is imported. Use props instead
 import {toggleLikeTweet} from '../data/appStore';
 
 export const Tweet = (props) => {
