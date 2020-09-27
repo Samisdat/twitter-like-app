@@ -76,6 +76,19 @@ export const toggleLikeTweet = (id_str) => {
 
 };
 
+export const toggleDisplayedTweets = () => {
+
+    const toggle = ('all' === appStore.getValue().toggle) ? 'liked' : 'all';
+
+    const nextState = {
+        ...appStore.getValue(),
+        toggle: toggle
+    };
+
+    appStore.next(nextState);
+
+};
+
 export const countTweets = () => {
 
     const countLiked = (sum, current) => {

@@ -1,5 +1,5 @@
 
-import {appStore, countTweets, resetStore} from './data/appStore';
+import {appStore, countTweets, resetStore, toggleDisplayedTweets} from './data/appStore';
 
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
@@ -34,19 +34,6 @@ const TwitterLikeApp = (props) => {
                 return (true === tweet.liked);
             });
         }
-
-    };
-
-    const toggleDisplayedTweets = () => {
-
-        const toggle = ('all' === store.toggle) ? 'liked' : 'all';
-
-        const nextState = {
-            ...appStore.getValue(),
-            toggle: toggle
-        };
-
-        appStore.next(nextState);
 
     };
 
