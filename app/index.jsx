@@ -9,7 +9,7 @@ import {ClearTweets} from './components/ClearTweets';
 import {ToggleLikedTweets} from './components/ToogleLikedTweets';
 import {Tweet} from "./components/Tweet";
 
-const TwitterLikeApp = (props) => {
+const TwitterLikeApp = () => {
 
     const [store, setStore] = useState(appStore.getValue());
 
