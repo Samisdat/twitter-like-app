@@ -1,15 +1,13 @@
-
-import {appStore, countTweets, resetStore, toggleDisplayedTweets} from './data/appStore';
-
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Container, Row, Col} from 'react-bootstrap'
+
+import {appStore, countTweets, resetStore, toggleDisplayedTweets} from './data/appStore';
 import {htmlId} from './constants';
 import {ClearTweets} from './components/ClearTweets';
-import {ToogleLikedTweets} from './components/ToogleLikedTweets';
-
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-import {Navbar, Container, Row, Col} from 'react-bootstrap'
+import {ToggleLikedTweets} from './components/ToogleLikedTweets';
+import {Tweet} from "./components/Tweet";
 
 const TwitterLikeApp = (props) => {
 
