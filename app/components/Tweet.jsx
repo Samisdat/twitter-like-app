@@ -1,9 +1,9 @@
-import React from "react";
-import moment from "moment";
+import React from 'react';
+import moment from 'moment';
 
 import {Row, Col, Card} from 'react-bootstrap'
 
-import {toogleLikeTweet} from "../data/appStore";
+import {toogleLikeTweet} from '../data/appStore';
 
 export const Tweet = (props) => {
 
@@ -31,7 +31,7 @@ export const Tweet = (props) => {
             <Card.Footer onClick={toggleLiked} style={{cursor: 'pointer'}}>
                 <Row>
                     <Col>{formattedDate}</Col>
-                    <Col className="text-right">
+                    <Col className='text-right'>
                         {heart}
                     </Col>
                 </Row>

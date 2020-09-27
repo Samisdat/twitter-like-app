@@ -1,4 +1,4 @@
-import {tweetMaxAgeSeconds} from "../constants";
+import {tweetMaxAgeSeconds} from '../constants';
 
 export const tweetsReducer = (tweet) => {
 

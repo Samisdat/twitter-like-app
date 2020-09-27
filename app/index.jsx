@@ -1,12 +1,12 @@
 
-import {appStore, countTweets} from "./data/appStore";
+import {appStore, countTweets} from './data/appStore';
 
-import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom";
-import {htmlId} from "./constants";
-import {ClearTweets} from "./components/ClearTweets";
-import {ToogleLikedTweets} from "./components/ToogleLikedTweets";
-import {Tweets} from "./components/Tweets";
+import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
+import {htmlId} from './constants';
+import {ClearTweets} from './components/ClearTweets';
+import {ToogleLikedTweets} from './components/ToogleLikedTweets';
+import {Tweets} from './components/Tweets';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -63,11 +63,11 @@ const TwitterLikeApp = (props) => {
     };
 
     return (
-        <Container>
+        <Container className='mt-3'>
             <Row>
                 <Col xs={4}><div  style={{position:'fixed'}}>
 
-                    <h1>Twitter like app</h1>
+                    <h1 className='mb-3'>Twitter like app</h1>
 
                     <ToogleLikedTweets
                         active={store.toggle}
