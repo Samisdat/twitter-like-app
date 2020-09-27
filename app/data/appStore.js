@@ -20,6 +20,18 @@ const firstState = {
     toggle: 'all',
 };
 
+export const resetStore = () => {
+
+    const nextState = {
+        toggle: 'all',
+        tweets: []
+    };
+
+    appStore.next(nextState);
+
+};
+
+
 appStore.next(firstState);
 
 tweets.subscribe( (tweet) => {

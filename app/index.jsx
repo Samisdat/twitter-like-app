@@ -1,5 +1,5 @@
 
-import {appStore, countTweets} from './data/appStore';
+import {appStore, countTweets, resetStore} from './data/appStore';
 
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
@@ -20,18 +20,6 @@ const TwitterLikeApp = (props) => {
         // update state on every new emitted change from appstore
         appStore.subscribe(setStore);
     },[]);
-
-    // @todo move to appStore
-    const clearTweetsInStore = () => {
-
-        const nextState = {
-            toggle: 'all',
-            tweets: []
-        };
-
-        appStore.next(nextState);
-
-    };
 
     // read from store based on toggle
     const getTweets = () => {
@@ -78,7 +66,7 @@ const TwitterLikeApp = (props) => {
 
                     <ClearTweets
                         numberOfTweets={store.tweets.length}
-                        clearTweetsInStore={clearTweetsInStore}
+                        resetStore={resetStore}
                     />
 
                 </div></Col>
