@@ -33,7 +33,7 @@ const TwitterLikeApp = (props) => {
 
     };
 
-    // @todo move to appStore
+    // read from store based on toggle
     const getTweets = () => {
 
         const toggle = store.toggle;
