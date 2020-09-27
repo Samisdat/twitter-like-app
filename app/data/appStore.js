@@ -53,7 +53,7 @@ export const toggleLikeTweet = (id_str) => {
     for(const tweet of tweets){
 
         if(id_str === tweet.id_str){
-            tweet.liked = (true === tweet.liked)? false: true;
+            tweet.liked = (true !== tweet.liked);
         }
 
     }
