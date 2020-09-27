@@ -34,6 +34,8 @@ const TwitterLikeApp = () => {
 
     };
 
+    const tweets = getTweets();
+
     return (
         <Container className='mt-3'>
             <Row>
@@ -58,7 +60,12 @@ const TwitterLikeApp = () => {
                 <Col xs={8}>
 
                     {tweets.map((tweet) => {
-                        return <Tweet key={tweet.id_str} {...tweet}></Tweet>
+                        return (
+                            <Tweet
+                                key={tweet.id_str}
+                                {...tweet}
+                            />
+                            )
                     })}
 
                 </Col>
