@@ -41,7 +41,6 @@ tweets.subscribe( (tweet) => {
 
 });
 
-    console.log('toogleLikeTweet', id_str);
 export const toggleLikeTweet = (id_str) => {
 
     let tweets = appStore.getValue().tweets;
