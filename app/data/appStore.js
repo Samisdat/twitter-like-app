@@ -14,12 +14,6 @@ import {tweetsReducer} from './tweetsReducer';
 
 export const appStore = new BehaviorSubject({});
 
-// screams for an ts interface
-const firstState = {
-    tweets: [],
-    toggle: 'all',
-};
-
 export const resetStore = () => {
 
     const nextState = {
@@ -31,8 +25,7 @@ export const resetStore = () => {
 
 };
 
-
-appStore.next(firstState);
+resetStore();
 
 tweets.subscribe( (tweet) => {
 
