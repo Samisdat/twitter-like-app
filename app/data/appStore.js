@@ -102,7 +102,7 @@ export const countTweets = () => {
 
     const liked = appStore.getValue().tweets.reduce(countLiked, 0);
 
-    const all = appStore.getValue().tweets.length - liked;
+    const all = appStore.getValue().tweets.length;
 
     return{
         all: all,
