@@ -2,7 +2,7 @@ import React from 'react';
 
 import {ButtonGroup, ToggleButton} from 'react-bootstrap'
 
-export const ToogleLikedTweets = (props) => {
+export const ToggleLikedTweets = (props) => {
 
     const radioValue = props.active;
 
